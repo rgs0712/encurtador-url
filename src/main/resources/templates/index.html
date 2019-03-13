@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="encurtador">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<title>EncurtadorURL</title>
+	
+	<link href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+	
+	<style>
+	.bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	
+	@media ( min-width : 768px) {
+		.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		}
+	}
+	</style>
+	<link href="./custom/css/cover.css" rel="stylesheet">
+	
+	
+	<script src="./node_modules/angular/angular.js" ></script>
+	<script src="./custom/js/ngClipboard.js" ></script>
+	<script src="./controller/encurtadorController/encurtadorController.js" ></script>
+</head>
+<body class="text-center" ng-controller="encurtadorController">
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<header class="masthead mb-auto">
+			<div class="inner">
+				<h3 class="masthead-brand">Encurtador URL</h3>
+				<nav class="nav nav-masthead justify-content-center">
+					<a class="nav-link active"
+						href="https://getbootstrap.com/docs/4.3/examples/cover/#">Home</a>
+					<a class="nav-link"
+						href="https://getbootstrap.com/docs/4.3/examples/cover/#">Features</a>
+					<a class="nav-link"
+						href="https://getbootstrap.com/docs/4.3/examples/cover/#">Contact</a>
+				</nav>
+			</div>
+		</header>
+
+		<main role="main" class="inner cover">
+		<h1 class="cover-heading">Encurte sua url AQUI</h1>
+		<p class="lead">
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Digite a url" ng-model="urlOriginal">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" ng-click="encurtarUrl(urlOriginal)">Encurtar URL</button>
+			</div>
+		</div>
+
+		</p>
+
+		<p class="lead">
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" ng-model="urlEncurtada" ng-readonly="true">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" ng-click="copyToClipBoard(urlEncurtada)">Copiar</button>
+			</div>
+		</div>
+
+		</p>
+		</main>
+
+		<footer class="mastfoot mt-auto">
+			<div class="inner">
+				<p>
+					Encurtador de url por <a
+						href="https://github.com/rgs0712/encurtador-url">RGS</a>.
+				</p>
+			</div>
+		</footer>
+	</div>
+
+
+</body>
+</html>

@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="encurtador">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<title>EncurtadorURL</title>
+	
+	<link href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+	<link href="./node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+	<style>
+	.bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	
+	@media ( min-width : 768px) {
+		.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		}
+	}
+	</style>
+	<link href="./custom/css/cover.css" rel="stylesheet">
+	
+	
+	<script src="./node_modules/angular/angular.js" ></script>
+	<script src="./custom/js/ngClipboard.js" ></script>
+	<script src="./controller/encurtadorController/encurtadorController.js" ></script>
 </head>
-<body>
-teste 1
+<body class="text-center" ng-controller="encurtadorController">
+
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<header class="masthead mb-auto">
+		</header>
+		<main role="main" class="inner cover">
+		<h1 class="cover-heading">Encurte sua url AQUI</h1>
+		<p class="lead">
+			<form name="encurtadorForm">
+				<div class="input-group mb-3">
+					<input type="url" class="form-control" placeholder="Digite a url" ng-model="urlOriginal" name="urlTeste" ng-enter="encurtarUrl(urlOriginal)">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button" ng-click="encurtarUrl(urlOriginal)">Encurtar URL</button>
+					</div>
+				</div>
+				<span class="error" ng-show="encurtadorForm.urlTeste.$invalid">Digite uma url Valida ;)</span>
+			</form>
+
+		</p>
+
+		<p class="lead">
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" ng-model="urlEncurtada" ng-readonly="true">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" ng-click="copyToClipBoard(urlEncurtada)"><i class="fas fa-copy"></i></button>
+			</div>
+		</div>
+
+		</p>
+		</main>
+
+		<footer class="mastfoot mt-auto">
+			<div class="inner">
+				<p>
+					Encurtador de url por 
+					<a href="https://github.com/rgs0712/encurtador-url">RGS</a>.
+				</p>
+			</div>
+		</footer>
+	</div>
+
+
 </body>
 </html>

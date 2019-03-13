@@ -67,6 +67,10 @@ public class DadosUrl {
 	public void setQtdAcessos(Long qtdAcessos) {
 		this.qtdAcessos = qtdAcessos;
 	}
+	public void incrementarQtdAcessos() {
+		this.qtdAcessos = this.qtdAcessos +1;
+	}
+	
 	public String getUrlEncurtada() {
 		return urlEncurtada;
 	}
