@@ -42,12 +42,15 @@ public class EncurtadorUrlService {
 	}
 
 	public String getByUrlCode(String urlCode) {
-		DadosUrl retorno = dadosUrlRepository.getByUrlCode(urlCode);
-		retorno.incrementarQtdAcessos();
-
-		dadosUrlRepository.save(retorno);
+		String retorno = "/";
+		DadosUrl dadosUrl = dadosUrlRepository.getByUrlCode(urlCode);
+		if(dadosUrl != null) {			
+			dadosUrl.incrementarQtdAcessos();
+			dadosUrlRepository.save(dadosUrl);
+			retorno = dadosUrl.getUrlOriginal();
+		}
 		
-		return retorno.getUrlOriginal();
+		return retorno;
 	}
 	
 	
