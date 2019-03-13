@@ -9,14 +9,14 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.encurtadorurl.dao.DadosUrlDAO;
 import br.com.encurtadorurl.entity.DadosUrl;
+import br.com.encurtadorurl.repository.DadosUrlRepository;
 
 @Service
 public class EncurtadorUrlService {
 
 	@Autowired
-	private DadosUrlDAO dadosUrlDAO;
+	private DadosUrlRepository dadosUrlRepository;
 	
 
 	@SuppressWarnings("static-access")
@@ -30,27 +30,22 @@ public class EncurtadorUrlService {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append(request.getScheme());
-		sb.append("://");
-		sb.append(request.getServerName());
-		sb.append(":");
-		sb.append(request.getServerPort());
-		sb.append("/redir/");
+		sb.append(request.getRequestURL().toString().replace(request.getRequestURI(), "/"));
+		sb.append("redir/");
 		sb.append(urlCode);
 		
-		
 		DadosUrl dadosUrl = new DadosUrl(urlOriginal, urlCode, sb.toString());
-		dadosUrl = dadosUrlDAO.saveOrUpdate(dadosUrl);
+		dadosUrl = dadosUrlRepository.save(dadosUrl);
 		
 		retorno.put("dadosUrl", dadosUrl);
 		return retorno;
 	}
 
 	public String getByUrlCode(String urlCode) {
-		DadosUrl retorno = dadosUrlDAO.getByUrlCode(urlCode);
+		DadosUrl retorno = dadosUrlRepository.getByUrlCode(urlCode);
 		retorno.incrementarQtdAcessos();
 
-		dadosUrlDAO.saveOrUpdate(retorno);
+		dadosUrlRepository.save(retorno);
 		
 		return retorno.getUrlOriginal();
 	}
