@@ -10,8 +10,7 @@ angular.module("encurtador",['ngClipboard'])
 	
 	$scope.encurtarUrl = function(urlEncurtada){
 		$scope.origin = $window.location.origin;
-		console.log($scope.origin);
-		$http.post('http://localhost:8080/encurtarUrl/encurtar', urlEncurtada, {'Content-Type' : 'application/json'})
+		$http.post($scope.origin+'/encurtarUrl/encurtar', urlEncurtada, {'Content-Type' : 'application/json'})
 		.then(function(response) {
 			$scope.urlEncurtada = response.data.dadosUrl.urlEncurtada;
 		}, function(response) {

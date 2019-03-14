@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com</groupId>
 	<artifactId>encurtador-url</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.RELEASE</version>
 	<name>encurtador-url</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -59,6 +59,29 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.3</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>encurtador-url</repository>
+					<resources>
+			           <resource>
+			             <targetPath>/</targetPath>
+			             <directory>${project.build.directory}</directory>
+			             <include>${project.build.finalName}.jar</include>
+			           </resource>
+			        </resources>
+				</configuration>
 			</plugin>
 		</plugins>
 		<finalName>encurtador</finalName>
