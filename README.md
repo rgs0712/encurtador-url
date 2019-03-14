@@ -33,7 +33,7 @@ $ docker run -p 80:8080 encurtador-url
 
 Acesse a url localhost:80 no seu navegador
 
-## Built With
+## Tecnologias utilizadas
 
 * [Bootstrap](https://getbootstrap.com/)
 * [FontAwesome](https://fontawesome.com/)
@@ -43,7 +43,7 @@ Acesse a url localhost:80 no seu navegador
 * [Docker](https://www.docker.com/)
 * [spotifyDockerMavenPlugin](https://github.com/spotify/docker-maven-plugin)
 
-## Authors
+## Autor
 
 * **Rafael Garcia Sant'Anna** [MyGitHub](https://github.com/rgs0712)
 
