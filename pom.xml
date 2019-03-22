@@ -17,7 +17,11 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<property name="dialect">
+			org.hibernate.dialect.H2Dialect
+		</property>
 	</properties>
+
 
 	<dependencies>
 		<dependency>
@@ -44,12 +48,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
 		</dependency>
 
 	</dependencies>
@@ -75,12 +85,12 @@
 				<configuration>
 					<repository>encurtador-url</repository>
 					<resources>
-			           <resource>
-			             <targetPath>/</targetPath>
-			             <directory>${project.build.directory}</directory>
-			             <include>${project.build.finalName}.jar</include>
-			           </resource>
-			        </resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
 				</configuration>
 			</plugin>
 		</plugins>

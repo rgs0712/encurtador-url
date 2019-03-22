@@ -19,7 +19,7 @@ import br.com.encurtadorurl.service.EncurtadorUrlService;
 
 @RestController
 @RequestMapping("/encurtarUrl")
-public class encurtarController {
+public class EncurtarController {
 	
 	@Autowired
 	private EncurtadorUrlService encurtadorUrlService;

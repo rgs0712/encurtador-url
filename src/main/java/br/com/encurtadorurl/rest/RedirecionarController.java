@@ -11,7 +11,7 @@ import br.com.encurtadorurl.service.EncurtadorUrlService;
 
 @RestController
 @RequestMapping(value="/redir")
-public class redirecionarController {
+public class RedirecionarController {
 	@Autowired
 	private EncurtadorUrlService encurtadorUrlService;
 	
